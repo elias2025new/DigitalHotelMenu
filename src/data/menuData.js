@@ -4,35 +4,6 @@ import mixedGrilledImg from '../assets/mixed_grilled.jpg';
 
 export const menuData = [
     {
-        id: "salad",
-        title: "Salad",
-        items: [
-            {
-                name: "Swiss Inn Salad",
-                price: "800.00",
-                description: "Lettuce with tomatoes cubes, sweet corn, shredded carrots, onion and croutons tossed in your choice of dressing: French, Italian or lemon-olive-oil dressing."
-            },
-            {
-                name: "Greek Salad",
-                price: "570.00",
-                description: "Bell pepper, onion, tomato, feta cheese, cucumber, lettuce, black olives, tossed in lemon-olive-oil vinaigrette."
-            }
-        ]
-    },
-    {
-        id: "pasta",
-        title: "Pastaraia",
-        description: "Choose from these pastas: Spaghetti, Penne, Tagliatelle or Fusilli.",
-        items: [
-            { name: "Bolognaise", price: "780.00", description: "" },
-            { name: "Prima vera", price: "520.00", description: "" },
-            { name: "Napoli", price: "680.00", description: "" },
-            { name: "Arrabiata", price: "570.00", description: "" },
-            { name: "Carbonara", price: "720.00", description: "" },
-            { name: "Salmo-cream", price: "1,400.00", description: "" }
-        ]
-    },
-    {
         id: "main-courses",
         title: "Main Courses",
         items: [
@@ -66,6 +37,36 @@ export const menuData = [
             }
         ]
     },
+    {
+        id: "salad",
+        title: "Salad",
+        items: [
+            {
+                name: "Swiss Inn Salad",
+                price: "800.00",
+                description: "Lettuce with tomatoes cubes, sweet corn, shredded carrots, onion and croutons tossed in your choice of dressing: French, Italian or lemon-olive-oil dressing."
+            },
+            {
+                name: "Greek Salad",
+                price: "570.00",
+                description: "Bell pepper, onion, tomato, feta cheese, cucumber, lettuce, black olives, tossed in lemon-olive-oil vinaigrette."
+            }
+        ]
+    },
+    {
+        id: "pasta",
+        title: "Pastaraia",
+        description: "Choose from these pastas: Spaghetti, Penne, Tagliatelle or Fusilli.",
+        items: [
+            { name: "Bolognaise", price: "780.00", description: "" },
+            { name: "Prima vera", price: "520.00", description: "" },
+            { name: "Napoli", price: "680.00", description: "" },
+            { name: "Arrabiata", price: "570.00", description: "" },
+            { name: "Carbonara", price: "720.00", description: "" },
+            { name: "Salmo-cream", price: "1,400.00", description: "" }
+        ]
+    },
+
     {
         id: "ethiopian",
         title: "Ethiopian Specialties",
