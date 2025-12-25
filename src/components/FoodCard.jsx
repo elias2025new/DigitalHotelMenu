@@ -30,7 +30,7 @@ const FoodCard = ({ item }) => {
                         {/* Placeholder for Food Image */}
                         <div className="w-full h-48 bg-hotel-light flex items-center justify-center overflow-hidden">
                             <img
-                                src={`https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop`}
+                                src={item.image || `https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop`}
                                 alt={item.name}
                                 className="w-full h-full object-cover"
                             />

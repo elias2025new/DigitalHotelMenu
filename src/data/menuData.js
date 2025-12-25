@@ -1,3 +1,5 @@
+import beefTenderloinImg from '../assets/beef_tenderloin.jpg';
+
 export const menuData = [
     {
         id: "salad",
@@ -35,6 +37,7 @@ export const menuData = [
             {
                 name: "Beef Tenderloin",
                 price: "1,000.00",
+                image: beefTenderloinImg,
                 description: "Grilled beef filet medallion cooked to your liking on red wine sauce accompanied by gratinated potato and roasted vegetable."
             },
             {
