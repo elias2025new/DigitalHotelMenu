@@ -1,4 +1,6 @@
 import beefTenderloinImg from '../assets/beef_tenderloin.jpg';
+import chickenQuesadillaImg from '../assets/chicken_quesadilla.jpg';
+import mixedGrilledImg from '../assets/mixed_grilled.jpg';
 
 export const menuData = [
     {
@@ -43,11 +45,13 @@ export const menuData = [
             {
                 name: "Chicken Quesadilla",
                 price: "850.00",
+                image: chickenQuesadillaImg,
                 description: "Homemade tortilla wrap lined with a blend of melted cheese, filled with tender chicken stripes, bell-pepper, tomatoes, onion, garlic, sweet corn and flavored by cilantro."
             },
             {
                 name: "Mixed Grilled",
                 price: "1,300.00",
+                image: mixedGrilledImg,
                 description: "Beef tenderloin, shish taouk and sausage with creamy mushroom sauce served with French fries and gratinated tomato."
             },
             {
