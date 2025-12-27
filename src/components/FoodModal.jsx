@@ -10,16 +10,17 @@ const FoodModal = ({ item, onClose }) => {
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                exit={{ opacity: 0, transition: { delay: 0.2 } }}
                 onClick={onClose}
-                className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-md"
+                className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xl"
             >
                 <motion.div
-                    initial={{ scale: 0.9, opacity: 0, y: 20 }}
-                    animate={{ scale: 1, opacity: 1, y: 0 }}
-                    exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                    layoutId={`card-${item.id}`}
+                    initial={{ borderRadius: 24 }}
+                    animate={{ borderRadius: 32 }}
+                    exit={{ borderRadius: 24 }}
                     onClick={(e) => e.stopPropagation()}
-                    className="bg-white rounded-[32px] overflow-hidden shadow-2xl max-w-lg w-full relative"
+                    className="bg-white overflow-hidden shadow-2xl max-w-lg w-full relative"
                 >
                     {/* Close Button */}
                     <button
@@ -39,7 +40,12 @@ const FoodModal = ({ item, onClose }) => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="p-8"
+                    >
                         <div className="flex justify-between items-start mb-4">
                             <h2 className="text-3xl font-black text-hotel-dark leading-tight">
                                 {item.name}
@@ -55,10 +61,15 @@ const FoodModal = ({ item, onClose }) => {
                             </p>
                         )}
 
-                        <div className="mt-8 pt-6 border-t border-slate-100 italic text-sm text-slate-400 text-center">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.3 }}
+                            className="mt-8 pt-6 border-t border-slate-100 italic text-sm text-slate-400 text-center"
+                        >
                             Prices include taxes and service charge
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </motion.div>
             </motion.div>
         </AnimatePresence>

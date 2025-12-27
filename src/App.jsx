@@ -88,7 +88,7 @@ function App() {
               {category.items.map((item, index) => (
                 <FoodCard
                   key={`${category.id}-${index}`}
-                  item={item}
+                  item={{ ...item, id: `${category.id}-${index}` }}
                   onClick={setSelectedItem}
                 />
               ))}
