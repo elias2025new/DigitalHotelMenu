@@ -66,9 +66,11 @@ const FoodModal = ({ item, onClose }) => {
                             </p>
                         )}
 
-                        <div className="mt-8 pt-6 border-t border-slate-100 italic text-[11px] text-slate-400 text-center space-y-1">
+                        <div className="mt-6 pt-4 border-t border-slate-100 italic text-[11px] text-slate-400 text-center space-y-2">
                             <p>Prices include taxes and service charge</p>
-                            <p className="opacity-80 leading-tight">Note: Pictures are for illustrative purposes only and may vary from the actual dish.</p>
+                            <p className="text-[9px] bg-red-50 text-red-400/80 py-1.5 px-3 rounded-lg border border-red-100/50 leading-tight">
+                                Note: Pictures are for illustrative purposes and may vary from the actual dish.
+                            </p>
                         </div>
                     </div>
                 </motion.div>
