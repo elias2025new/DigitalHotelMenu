@@ -176,7 +176,7 @@ export const menuData = [
             {
                 name: "Steak and Cheese Sandwich",
                 price: "1,000.00",
-                image: "https://images.unsplash.com/photo-1553909489-cd47e090796a?q=80&w=600&auto=format&fit=crop",
+                image: "/images/Lucid_Origin_A_succulent_steak_and_cheese_sandwich_featuring_t_3.jpg",
                 description: "Beef tenderloin strips, sautéed with onion, garlic and tomatoes, topped with melted cheese served in a toasted olive baguette, accompanied French fries."
             }
         ]
