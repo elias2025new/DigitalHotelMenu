@@ -19,14 +19,14 @@ const FoodModal = ({ item, onClose }) => {
                     animate={{ scale: 1, opacity: 1, y: 0 }}
                     exit={{ scale: 0.9, opacity: 0, y: 20 }}
                     onClick={(e) => e.stopPropagation()}
-                    className="bg-white rounded-[32px] overflow-hidden shadow-2xl max-w-lg w-full relative"
+                    className="bg-white rounded-[32px] overflow-hidden shadow-2xl max-w-sm w-full relative max-h-[90vh] overflow-y-auto no-scrollbar"
                 >
                     {/* Close Button */}
                     <button
                         onClick={onClose}
                         className="absolute top-4 right-4 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-lg text-hotel-dark hover:bg-white transition-colors"
                     >
-                        <X size={24} />
+                        <X size={20} />
                     </button>
 
                     {/* Big Image */}
@@ -39,18 +39,18 @@ const FoodModal = ({ item, onClose }) => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-8">
-                        <div className="flex justify-between items-start mb-4">
-                            <h2 className="text-3xl font-black text-hotel-dark leading-tight">
+                    <div className="p-6">
+                        <div className="flex justify-between items-start mb-3">
+                            <h2 className="text-xl font-black text-hotel-dark leading-tight">
                                 {item.name}
                             </h2>
-                            <p className="text-hotel-green text-2xl font-black whitespace-nowrap ml-4">
-                                {item.price} <span className="text-sm">ETB</span>
+                            <p className="text-hotel-green text-lg font-black whitespace-nowrap ml-4">
+                                {item.price} <span className="text-xs">ETB</span>
                             </p>
                         </div>
 
                         {item.description && (
-                            <p className="text-slate-600 text-lg leading-relaxed font-medium">
+                            <p className="text-slate-600 text-sm leading-relaxed font-medium">
                                 {item.description}
                             </p>
                         )}
