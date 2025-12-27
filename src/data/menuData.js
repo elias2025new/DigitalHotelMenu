@@ -79,7 +79,7 @@ export const menuData = [
             {
                 name: "Arrabiata",
                 price: "570.00",
-                image: "https://images.unsplash.com/photo-1551183053-bf91e1d81141?q=80&w=600&auto=format&fit=crop",
+                image: "/images/lucid-origin_Spicy_tomato_sauce_flavored_with_garlic_and_dried_red_chili_peppers.-0.jpg",
                 description: "Spicy tomato sauce flavored with garlic and dried red chili peppers."
             },
             {
@@ -152,7 +152,7 @@ export const menuData = [
             {
                 name: "Fasting Pizza",
                 price: "600.00",
-                image: "https://images.unsplash.com/photo-1511688858341-cf7b9442971a?q=80&w=600&auto=format&fit=crop",
+                image: "/images/Lucid_Origin_Traditional_round_pizza_with_a_crispy_golden_crus_0.jpg",
                 description: "Traditional round pizza topped with tomato sauce, stirred seasonal vegetables."
             }
         ]
