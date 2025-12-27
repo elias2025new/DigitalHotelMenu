@@ -142,13 +142,13 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick }) => {
                             `}
                         >
                             <div className={`
-                                w-24 h-24 rounded-[2rem] overflow-hidden border-2 transition-all duration-300 p-1.5
+                                w-24 h-24 rounded-[2.2rem] overflow-hidden transition-all duration-500 p-1.5
                                 ${activeCategory === category.id
-                                    ? 'border-hotel-green bg-green-50 shadow-md transform -translate-y-1'
-                                    : 'border-white/50 bg-white shadow-sm'
+                                    ? 'bg-hotel-green shadow-[0_15px_30px_-8px_rgba(45,90,39,0.4),_inset_0_2px_4px_rgba(255,255,255,0.2)] scale-110 -translate-y-2'
+                                    : 'bg-white shadow-sm opacity-90'
                                 }
                             `}>
-                                <div className="w-full h-full rounded-[1.5rem] overflow-hidden bg-gray-100">
+                                <div className="w-full h-full rounded-[1.8rem] overflow-hidden bg-gray-100">
                                     <img
                                         src={category.items[0]?.image || '/images/default_category.jpg'}
                                         alt={category.title}
