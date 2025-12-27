@@ -116,7 +116,7 @@ export const menuData = [
             {
                 name: "Shero/Tegabino",
                 price: "540.00",
-                image: "https://images.unsplash.com/photo-1589113331135-f4337c39b214?q=80&w=600&auto=format&fit=crop",
+                image: "/images/shero_tegabino.png",
                 description: "Chickpeas and shiro powder stewed with olive oil and traditional spices, served with enjera."
             },
             {
