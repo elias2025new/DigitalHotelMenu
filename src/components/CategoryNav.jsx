@@ -52,17 +52,25 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick }) => {
     }, [activeCategory]);
 
     useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            if (scrollRef.current) {
-                const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-                setShowLeftIndicator(scrollLeft > 10);
-                setShowRightIndicator(scrollLeft < scrollWidth - clientWidth - 10);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    if (scrollRef.current) {
+                        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+                        setShowLeftIndicator(scrollLeft > 10);
+                        setShowRightIndicator(scrollLeft < scrollWidth - clientWidth - 10);
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         };
 
         const scrollElement = scrollRef.current;
         if (scrollElement) {
-            scrollElement.addEventListener('scroll', handleScroll);
+            scrollElement.addEventListener('scroll', handleScroll, { passive: true });
             handleScroll(); // Initial check
         }
 
@@ -153,6 +161,7 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick }) => {
                                         src={category.items[0]?.image || '/images/default_category.jpg'}
                                         alt={category.title}
                                         className="w-full h-full object-cover"
+                                        loading="lazy"
                                     />
                                 </div>
                             </div>

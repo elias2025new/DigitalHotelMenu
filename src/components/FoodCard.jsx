@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Info } from 'lucide-react';
 
-const FoodCard = ({ item, onClick }) => {
+const FoodCard = memo(({ item, onClick }) => {
     return (
         <motion.div
             whileTap={{ scale: 0.98 }}
@@ -15,6 +15,7 @@ const FoodCard = ({ item, onClick }) => {
                     src={item.image || '/images/default_food.jpg'}
                     alt={item.name}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                 />
             </div>
 
@@ -36,6 +37,8 @@ const FoodCard = ({ item, onClick }) => {
             </div>
         </motion.div>
     );
-};
+});
+
+FoodCard.displayName = 'FoodCard';
 
 export default FoodCard;

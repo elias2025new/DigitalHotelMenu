@@ -21,7 +21,7 @@ function App() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleCategoryClick = (id) => {
+  const handleCategoryClick = React.useCallback((id) => {
     setActiveCategory(id);
     const element = document.getElementById(id);
     if (element) {
@@ -36,26 +36,33 @@ function App() {
         behavior: 'smooth'
       });
     }
-  };
+  }, []);
 
-  // Update active category on scroll
+  // Update active category on scroll (Throttled & Efficient)
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200; // Increased to match taller nav
-
-      for (const section of menuData) {
-        const element = document.getElementById(section.id);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveCategory(section.id);
-          }
-        }
-      }
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -50% 0px', // Trigger when section is in middle of screen
+      threshold: 0
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveCategory(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Watch all menu sections
+    menuData.forEach((category) => {
+      const element = document.getElementById(category.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   return (
