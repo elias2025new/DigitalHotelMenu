@@ -66,8 +66,9 @@ const FoodModal = ({ item, onClose }) => {
                             </p>
                         )}
 
-                        <div className="mt-8 pt-6 border-t border-slate-100 italic text-sm text-slate-400 text-center">
-                            Prices include taxes and service charge
+                        <div className="mt-8 pt-6 border-t border-slate-100 italic text-[11px] text-slate-400 text-center space-y-1">
+                            <p>Prices include taxes and service charge</p>
+                            <p className="opacity-80 leading-tight">Note: Pictures are for illustrative purposes only and may vary from the actual dish.</p>
                         </div>
                     </div>
                 </motion.div>
