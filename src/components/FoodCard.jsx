@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Info } from 'lucide-react';
 
-const FoodCard = ({ item }) => {
+const FoodCard = ({ item, onClick }) => {
     return (
-        <div className="bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] border border-gray-100 flex p-3 gap-4 min-h-[140px]">
+        <motion.div
+            whileTap={{ scale: 0.98 }}
+            onClick={() => onClick(item)}
+            className="bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] border border-gray-100 flex p-3 gap-4 min-h-[140px] cursor-pointer active:bg-slate-50 transition-colors"
+        >
             {/* Food Image on Left */}
             <div className="w-28 h-28 rounded-2xl overflow-hidden flex-shrink-0 bg-hotel-light">
                 <img
@@ -30,7 +34,7 @@ const FoodCard = ({ item }) => {
                     </p>
                 )}
             </div>
-        </div>
+        </motion.div>
     );
 };
 

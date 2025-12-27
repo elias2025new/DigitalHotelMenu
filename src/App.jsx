@@ -4,12 +4,14 @@ import Header from './components/Header';
 import ImportantInfo from './components/ImportantInfo';
 import CategoryNav from './components/CategoryNav';
 import FoodCard from './components/FoodCard';
+import FoodModal from './components/FoodModal';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import { menuData } from './data/menuData';
 
 function App() {
   const [activeCategory, setActiveCategory] = useState(menuData[0].id);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   // Force scroll to top on refresh
   useEffect(() => {
@@ -84,7 +86,11 @@ function App() {
 
             <div className="space-y-4 text-left">
               {category.items.map((item, index) => (
-                <FoodCard key={`${category.id}-${index}`} item={item} />
+                <FoodCard
+                  key={`${category.id}-${index}`}
+                  item={item}
+                  onClick={setSelectedItem}
+                />
               ))}
             </div>
 
@@ -95,6 +101,11 @@ function App() {
       </main>
 
       <Footer />
+
+      <FoodModal
+        item={selectedItem}
+        onClose={() => setSelectedItem(null)}
+      />
 
       <ScrollToTop />
     </Layout>
