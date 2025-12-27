@@ -30,7 +30,7 @@ export const menuData = [
             {
                 name: "Fish and Chips",
                 price: "960.00",
-                image: "https://images.unsplash.com/photo-1594002496924-4f24fbb26ce4?q=80&w=600&auto=format&fit=crop",
+                image: "/images/lucid-origin_Fish_and_Chips_Fried_filet_of_Nile_Perch_in_beer_batter_served_French_fries_lemo-0.jpg",
                 description: "Fried filet of Nile Perch in beer batter served French fries, lemon and tartar dip."
             }
         ]
@@ -42,13 +42,13 @@ export const menuData = [
             {
                 name: "Swiss Inn Salad",
                 price: "800.00",
-                image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop",
+                image: "/images/lucid-origin_Lettuce_with_tomatoes_cubes_sweet_corn_shredded_carrots_onion_and_croutons_tosse-0.jpg",
                 description: "Lettuce with tomatoes cubes, sweet corn, shredded carrots, onion and croutons tossed in your choice of dressing: French, Italian or lemon-olive-oil dressing."
             },
             {
                 name: "Greek Salad",
                 price: "570.00",
-                image: "https://images.unsplash.com/photo-1540420753464-338a74ff541c?q=80&w=600&auto=format&fit=crop",
+                image: "/images/lucid-origin_Bell_pepper_onion_tomato_feta_cheese_cucumber_lettuce_black_olives_tossed_in_lem-0.jpg",
                 description: "Bell pepper, onion, tomato, feta cheese, cucumber, lettuce, black olives, tossed in lemon-olive-oil vinaigrette."
             }
         ]
