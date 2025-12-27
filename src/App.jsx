@@ -23,7 +23,7 @@ function App() {
     setActiveCategory(id);
     const element = document.getElementById(id);
     if (element) {
-      const offset = 100; // Offset for sticky nav
+      const offset = 180; // Offset for taller card-style sticky nav
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -39,7 +39,7 @@ function App() {
   // Update active category on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 150;
+      const scrollPosition = window.scrollY + 200; // Increased to match taller nav
 
       for (const section of menuData) {
         const element = document.getElementById(section.id);
@@ -64,29 +64,32 @@ function App() {
         onCategoryClick={handleCategoryClick}
       />
 
-      <div className="pt-20">
+      <div className="pt-32">
         <Header />
       </div>
 
       <ImportantInfo />
 
-      <main className="px-6 py-8 flex-grow">
+      <main className="px-6 py-4 flex-grow">
         {menuData.map((category) => (
-          <section key={category.id} id={category.id} className="mb-12">
-            <h2 className="text-2xl font-bold text-hotel-dark mb-2 tracking-tight">
+          <section key={category.id} id={category.id} className="mb-14 text-center">
+            <h2 className="text-2xl font-black text-hotel-green mb-4 tracking-tighter uppercase border-b-2 border-green-50 inline-block pb-1">
               {category.title}
             </h2>
             {category.description && (
-              <p className="text-sm text-hotel-muted mb-6 italic opacity-80">
+              <p className="text-sm text-slate-600 mb-6 italic opacity-90 max-w-[85%] mx-auto leading-relaxed">
                 {category.description}
               </p>
             )}
 
-            <div className="space-y-4 pt-2">
+            <div className="space-y-4 text-left">
               {category.items.map((item, index) => (
                 <FoodCard key={`${category.id}-${index}`} item={item} />
               ))}
             </div>
+
+            {/* Divider Line between sections */}
+            <div className="mt-12 mb-6 border-b-2 border-slate-100 opacity-60 rounded-full mx-4"></div>
           </section>
         ))}
       </main>

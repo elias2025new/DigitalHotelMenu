@@ -74,8 +74,8 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick }) => {
     }, []);
 
     return (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 max-w-[430px] mx-auto">
-            <div className="relative">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 max-w-[430px] mx-auto shadow-sm">
+            <div className="relative pt-6 pb-4">
                 {/* Left scroll indicator */}
                 <AnimatePresence>
                     {showLeftIndicator && (
@@ -83,14 +83,9 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick }) => {
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -10 }}
-                            className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white/90 to-transparent z-10 flex items-center justify-start pl-1 pointer-events-none"
+                            className="absolute left-0 top-6 bottom-4 w-12 bg-gradient-to-r from-white to-transparent z-10 flex items-center justify-start pl-1 pointer-events-none"
                         >
-                            <motion.div
-                                animate={{ x: [-2, 2, -2] }}
-                                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                            >
-                                <ChevronLeft size={20} className="text-hotel-gold" />
-                            </motion.div>
+                            <ChevronLeft size={20} className="text-hotel-green" />
                         </motion.div>
                     )}
                 </AnimatePresence>
@@ -102,14 +97,9 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick }) => {
                             initial={{ opacity: 0, x: 10 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: 10 }}
-                            className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white/90 to-transparent z-10 flex items-center justify-end pr-1 pointer-events-none"
+                            className="absolute right-0 top-6 bottom-4 w-12 bg-gradient-to-l from-white to-transparent z-10 flex items-center justify-end pr-1 pointer-events-none"
                         >
-                            <motion.div
-                                animate={{ x: [2, -2, 2] }}
-                                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                            >
-                                <ChevronRight size={20} className="text-hotel-gold" />
-                            </motion.div>
+                            <ChevronRight size={20} className="text-hotel-green" />
                         </motion.div>
                     )}
                 </AnimatePresence>
@@ -122,16 +112,21 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick }) => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.3 }}
-                            className="absolute top-1 left-1/2 -translate-x-1/2 z-20 bg-hotel-gold text-white text-xs px-3 py-1 rounded-full shadow-lg whitespace-nowrap"
+                            style={{
+                                backgroundColor: '#2D5A27',
+                                color: '#ffffff',
+                                zIndex: 100
+                            }}
+                            className="absolute top-2 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full shadow-lg whitespace-nowrap uppercase font-bold text-[10px] tracking-widest text-center"
                         >
-                            ← Swipe to see more categories →
+                            ← Swipe for more →
                         </motion.div>
                     )}
                 </AnimatePresence>
 
                 <div
                     ref={scrollRef}
-                    className="flex overflow-x-auto no-scrollbar px-4 py-4 space-x-2 scroll-smooth"
+                    className="flex overflow-x-auto no-scrollbar px-6 space-x-4 scroll-smooth"
                 >
                     {categories.map((category) => (
                         <button
@@ -139,14 +134,37 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick }) => {
                             ref={(el) => (buttonRefs.current[category.id] = el)}
                             onClick={() => onCategoryClick(category.id)}
                             className={`
-              whitespace-nowrap px-5 py-2 rounded-full text-sm font-medium transition-all duration-300
-              ${activeCategory === category.id
-                                    ? 'bg-hotel-gold text-white shadow-lg shadow-hotel-gold/20'
-                                    : 'bg-hotel-light text-hotel-muted border border-transparent'
+                                flex-shrink-0 w-28 flex flex-col items-center gap-2 pb-2 transition-all duration-300
+                                ${activeCategory === category.id
+                                    ? 'opacity-100'
+                                    : 'opacity-80'
                                 }
-            `}
+                            `}
                         >
-                            {category.title}
+                            <div className={`
+                                w-24 h-24 rounded-[2rem] overflow-hidden border-2 transition-all duration-300 p-1.5
+                                ${activeCategory === category.id
+                                    ? 'border-hotel-green bg-green-50 shadow-md transform -translate-y-1'
+                                    : 'border-white/50 bg-white shadow-sm'
+                                }
+                            `}>
+                                <div className="w-full h-full rounded-[1.5rem] overflow-hidden bg-gray-100">
+                                    <img
+                                        src={category.items[0]?.image || '/images/default_category.jpg'}
+                                        alt={category.title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </div>
+                            <span className={`
+                                text-[11px] font-extrabold text-center leading-tight transition-colors duration-300 px-1 uppercase tracking-tight
+                                ${activeCategory === category.id
+                                    ? 'text-hotel-green font-black'
+                                    : 'text-hotel-dark'
+                                }
+                            `}>
+                                {category.title}
+                            </span>
                         </button>
                     ))}
                 </div>

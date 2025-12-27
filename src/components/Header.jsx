@@ -43,9 +43,9 @@ const Header = () => {
             </motion.h1>
             <motion.p
                 initial={{ opacity: 0, y: 5 }}
-                animate={{ opacity: 0.8, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.5 }}
-                className="text-hotel-muted text-sm mt-1"
+                className="text-slate-500 text-sm mt-1"
             >
                 What is your selection today?
             </motion.p>

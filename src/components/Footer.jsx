@@ -17,10 +17,10 @@ const Footer = () => {
                 </div>
 
                 <div className="pt-4 border-t border-gray-300 space-y-1">
-                    <p className="text-[10px] text-hotel-muted uppercase tracking-wider font-medium">
+                    <p className="text-[11px] text-slate-600 uppercase tracking-widest font-bold">
                         All prices include 10% service charge & 15% VAT
                     </p>
-                    <p className="text-[10px] text-hotel-muted uppercase tracking-wider font-medium">
+                    <p className="text-[11px] text-slate-600 uppercase tracking-widest font-bold">
                         All prices are in Ethiopian Birr
                     </p>
                 </div>

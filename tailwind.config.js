@@ -12,6 +12,7 @@ export default {
           dark: '#1A1A1A',
           light: '#F5F5F5',
           muted: '#8e8e93',
+          green: '#2D5A27',
         }
       },
       fontFamily: {
