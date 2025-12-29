@@ -122,7 +122,7 @@ export const menuData = [
             {
                 name: "Fasting FirFir",
                 price: "450.00",
-                image: "https://images.unsplash.com/photo-1589113298132-f3f7690327f1?q=80&w=600&auto=format&fit=crop",
+                image: "/images/fasting_firfir.jpg",
                 description: "The traditional way of enjera with hot spiced tomato sauce."
             }
         ]
