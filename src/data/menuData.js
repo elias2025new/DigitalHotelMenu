@@ -104,13 +104,13 @@ export const menuData = [
             {
                 name: "Beef or Lamb Tibs",
                 price: "970.00",
-                image: "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?q=80&w=600&auto=format&fit=crop",
+                image: "/images/beef_of_lamb_tibs.jpg",
                 description: "Cubes of lamb or beef tenderloins sautéed with onion, garlic, tomatoes, chili, local butter and traditional spice."
             },
             {
                 name: "Tibs FirFir",
                 price: "680.00",
-                image: "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?q=80&w=600&auto=format&fit=crop",
+                image: "/images/tibs_firfir.jpg",
                 description: "Sautéed strips of beef mixed with enjara in traditional spiced tomato sauce."
             },
             {
