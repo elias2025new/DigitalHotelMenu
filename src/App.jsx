@@ -7,18 +7,51 @@ import FoodCard from './components/FoodCard';
 import FoodModal from './components/FoodModal';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import Loader from './components/Loader';
 import { menuData } from './data/menuData';
 
 function App() {
   const [activeCategory, setActiveCategory] = useState(menuData[0].id);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isExiting, setIsExiting] = useState(false);
 
-  // Force scroll to top on refresh
+  // Force scroll to top on refresh and handle image preloading
   useEffect(() => {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
     window.scrollTo(0, 0);
+
+    // Preload all images
+    const imageUrls = menuData.flatMap(category => category.items.map(item => item.image));
+    let loadedCount = 0;
+
+    if (imageUrls.length === 0) {
+      setTimeout(() => {
+        setIsExiting(true);
+        setTimeout(() => setIsLoading(false), 800);
+      }, 1000);
+      return;
+    }
+
+    const handleImageLoad = () => {
+      loadedCount++;
+      if (loadedCount === imageUrls.length) {
+        // Minimum display time for the loader to ensure smooth feel
+        setTimeout(() => {
+          setIsExiting(true);
+          setTimeout(() => setIsLoading(false), 800);
+        }, 1500);
+      }
+    };
+
+    imageUrls.forEach(url => {
+      const img = new Image();
+      img.src = url;
+      img.onload = handleImageLoad;
+      img.onerror = handleImageLoad; // Continue even if some images fail
+    });
   }, []);
 
   const handleCategoryClick = React.useCallback((id) => {
@@ -66,56 +99,59 @@ function App() {
   }, []);
 
   return (
-    <Layout>
-      <CategoryNav
-        categories={menuData}
-        activeCategory={activeCategory}
-        onCategoryClick={handleCategoryClick}
-      />
+    <>
+      {isLoading && <Loader isExiting={isExiting} />}
+      <Layout>
+        <CategoryNav
+          categories={menuData}
+          activeCategory={activeCategory}
+          onCategoryClick={handleCategoryClick}
+        />
 
-      <div className="pt-32">
-        <Header />
-      </div>
+        <div className="pt-32">
+          <Header />
+        </div>
 
-      <ImportantInfo />
+        <ImportantInfo />
 
-      <main className="px-6 py-4 flex-grow">
-        {menuData.map((category) => (
-          <section key={category.id} id={category.id} className="mb-14 text-center">
-            <h2 className="text-2xl font-black text-hotel-green mb-4 tracking-tighter uppercase border-b-2 border-green-50 inline-block pb-1">
-              {category.title}
-            </h2>
-            {category.description && (
-              <p className="text-sm text-slate-600 mb-6 italic opacity-90 max-w-[85%] mx-auto leading-relaxed">
-                {category.description}
-              </p>
-            )}
+        <main className="px-6 py-4 flex-grow">
+          {menuData.map((category) => (
+            <section key={category.id} id={category.id} className="mb-14 text-center">
+              <h2 className="text-2xl font-black text-hotel-green mb-4 tracking-tighter uppercase border-b-2 border-green-50 inline-block pb-1">
+                {category.title}
+              </h2>
+              {category.description && (
+                <p className="text-sm text-slate-600 mb-6 italic opacity-90 max-w-[85%] mx-auto leading-relaxed">
+                  {category.description}
+                </p>
+              )}
 
-            <div className="space-y-4 text-left">
-              {category.items.map((item, index) => (
-                <FoodCard
-                  key={`${category.id}-${index}`}
-                  item={item}
-                  onClick={setSelectedItem}
-                />
-              ))}
-            </div>
+              <div className="space-y-4 text-left">
+                {category.items.map((item, index) => (
+                  <FoodCard
+                    key={`${category.id}-${index}`}
+                    item={item}
+                    onClick={setSelectedItem}
+                  />
+                ))}
+              </div>
 
-            {/* Divider Line between sections */}
-            <div className="mt-12 mb-6 border-b-2 border-slate-100 opacity-60 rounded-full mx-4"></div>
-          </section>
-        ))}
-      </main>
+              {/* Divider Line between sections */}
+              <div className="mt-12 mb-6 border-b-2 border-slate-100 opacity-60 rounded-full mx-4"></div>
+            </section>
+          ))}
+        </main>
 
-      <Footer />
+        <Footer />
 
-      <FoodModal
-        item={selectedItem}
-        onClose={() => setSelectedItem(null)}
-      />
+        <FoodModal
+          item={selectedItem}
+          onClose={() => setSelectedItem(null)}
+        />
 
-      <ScrollToTop />
-    </Layout>
+        <ScrollToTop />
+      </Layout>
+    </>
   );
 }
 

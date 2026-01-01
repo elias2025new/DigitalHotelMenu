@@ -22,3 +22,37 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Loader Styles */
+.loader-container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: var(--color-hotel-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+}
+
+.loader-content {
+  text-align: center;
+  animation: pulse-slow 2s infinite ease-in-out;
+}
+
+.loader-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  opacity: 0.8;
+}
+
+.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.98); opacity: 0.8; }
+}
