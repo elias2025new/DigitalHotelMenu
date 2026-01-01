@@ -212,7 +212,7 @@ export const menuData = [
             {
                 name: "Continental Breakfast",
                 price: "770.00",
-                image: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?q=80&w=600&auto=format&fit=crop",
+                image: "/images/Continental Breakfast.jpg",
                 description: "Choice of fresh one seasonal juice or seasonal Fresh sliced fruits Baker's Basket selection of Croissant, Danish Pastries add toast bread served With butter, preserves And honey, freshly brewed Coffee, hot chocolate or tea."
             }
         ]
@@ -224,19 +224,19 @@ export const menuData = [
             {
                 name: "Barly Soup",
                 price: "460.00",
-                image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=600&auto=format&fit=crop",
+                image: "/images/Barly Soup.jpg",
                 description: "Famous and rich Swiss soup made of barley, vegetables, beef bacon and topped with chives."
             },
             {
                 name: "Chicken & Corn Chowder",
                 price: "490.00",
-                image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=600&auto=format&fit=crop",
+                image: "/images/Chicken & Corn Chowder.jpg",
                 description: "Hearty chicken cream soup with, sweet-corn, Potatoes and vegetables."
             },
             {
                 name: "Mediterranean vegetable soup",
                 price: "420.00",
-                image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=600&auto=format&fit=crop",
+                image: "/images/Mediterranean vegetable soup.jpg",
                 description: "Vegetable-tomato broth with rich of vegetable, kidney beans, topped with parmesan Shaving and basil."
             }
         ]
