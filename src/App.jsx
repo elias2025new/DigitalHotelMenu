@@ -30,19 +30,27 @@ function App() {
     if (imageUrls.length === 0) {
       setTimeout(() => {
         setIsExiting(true);
-        setTimeout(() => setIsLoading(false), 800);
-      }, 1000);
+        setTimeout(() => setIsLoading(false), 400);
+      }, 500);
       return;
     }
+
+    // Fail-safe timeout: Force stop loading after 5 seconds if images are stuck
+    const failSafeTimeout = setTimeout(() => {
+      console.warn("Preloading timed out. Proceeding to menu.");
+      setIsExiting(true);
+      setTimeout(() => setIsLoading(false), 400);
+    }, 5000);
 
     const handleImageLoad = () => {
       loadedCount++;
       if (loadedCount === imageUrls.length) {
         // Minimum display time for the loader to ensure smooth feel
+        clearTimeout(failSafeTimeout);
         setTimeout(() => {
           setIsExiting(true);
-          setTimeout(() => setIsLoading(false), 800);
-        }, 1500);
+          setTimeout(() => setIsLoading(false), 400);
+        }, 500);
       }
     };
 
@@ -52,6 +60,8 @@ function App() {
       img.onload = handleImageLoad;
       img.onerror = handleImageLoad; // Continue even if some images fail
     });
+
+    return () => clearTimeout(failSafeTimeout);
   }, []);
 
   const handleCategoryClick = React.useCallback((id) => {
