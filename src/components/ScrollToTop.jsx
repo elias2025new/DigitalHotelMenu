@@ -23,10 +23,27 @@ const ScrollToTop = () => {
     }, []);
 
     const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        const duration = 1500; // Slower duration in ms
+        const start = window.scrollY;
+        const startTime = performance.now();
+
+        const animateScroll = (currentTime) => {
+            const timeElapsed = currentTime - startTime;
+            const progress = Math.min(timeElapsed / duration, 1);
+
+            // Ease-in-out-cubic formula
+            const ease = progress < 0.5
+                ? 4 * progress * progress * progress
+                : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+            window.scrollTo(0, start * (1 - ease));
+
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animateScroll);
+            }
+        };
+
+        requestAnimationFrame(animateScroll);
     };
 
     return (
