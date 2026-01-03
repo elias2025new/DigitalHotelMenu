@@ -61,38 +61,37 @@ export const menuData = [
             {
                 name: "Bolognaise",
                 price: "780.00",
-                image: "https://images.unsplash.com/photo-1622973536968-3ead9e780960?q=80&w=600&auto=format&fit=crop",
-                description: "Traditional Italian pasta with a rich, slow-cooked meat and tomato sauce."
+                image: "https://images.unsplash.com/photo-1622973536968-3ead9e780960?q=80&w=600&auto=format&fit=crop"
             },
             {
                 name: "Prima vera",
                 price: "520.00",
-                image: "https://images.unsplash.com/photo-1473093226795-af9932fe5856?q=80&w=600&auto=format&fit=crop",
-                description: "Fresh seasonal vegetables sautéed with garlic and olive oil, tossed with your choice of pasta."
+                image: "https://images.unsplash.com/photo-1473093226795-af9932fe5856?q=80&w=600&auto=format&fit=crop"
             },
             {
                 name: "Napoli",
                 price: "680.00",
-                image: "https://images.unsplash.com/photo-1595295333158-4742f28fbd85?q=80&w=600&auto=format&fit=crop",
-                description: "Simple and classic tomato sauce with basil, garlic, and extra virgin olive oil."
+                image: "https://images.unsplash.com/photo-1595295333158-4742f28fbd85?q=80&w=600&auto=format&fit=crop"
             },
             {
                 name: "Arrabiata",
                 price: "570.00",
-                image: "/images/lucid-origin_Spicy_tomato_sauce_flavored_with_garlic_and_dried_red_chili_peppers.-0.jpg",
-                description: "Spicy tomato sauce flavored with garlic and dried red chili peppers."
+                image: "/images/lucid-origin_Spicy_tomato_sauce_flavored_with_garlic_and_dried_red_chili_peppers.-0.jpg"
             },
             {
                 name: "Carbonara",
                 price: "720.00",
-                image: "https://images.unsplash.com/photo-1612874742237-6526221588e3?q=80&w=600&auto=format&fit=crop",
-                description: "Creamy sauce with cheese, egg, and smoked beef bacon."
+                image: "https://images.unsplash.com/photo-1612874742237-6526221588e3?q=80&w=600&auto=format&fit=crop"
             },
             {
                 name: "Salmo-cream",
                 price: "1,400.00",
-                image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=600&auto=format&fit=crop",
-                description: "Penne pasta with smoked salmon in a rich and creamy sauce."
+                image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                name: "Napoletaana",
+                price: "750.00",
+                image: "/images/napoletaana_pasta.png"
             }
         ]
     },
@@ -108,7 +107,7 @@ export const menuData = [
                 description: "Cubes of lamb or beef tenderloins sautéed with onion, garlic, tomatoes, chili, local butter and traditional spice."
             },
             {
-                name: "Tibs FirFir",
+                name: "Quanta/Tibs FirFir",
                 price: "680.00",
                 image: "/images/tibs_firfir.jpg",
                 description: "Sautéed strips of beef mixed with enjara in traditional spiced tomato sauce."
@@ -162,10 +161,10 @@ export const menuData = [
         title: "Burgers & Sandwiches",
         items: [
             {
-                name: "Beef Burger",
+                name: "Swiss inn Nexus Special Beef burger",
                 price: "820.00",
                 image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop",
-                description: "Pure beef burger patty on avocado, lettuce, tomato, mayonnaise, topped with sautéed mushroom, onion, cheese bacon; all served in our sesame-burger-bun and with aside of French-fries."
+                description: "Special Beef Burger, Light spice beef burger, onion Tomato, little bread bum cheese and gired egg"
             },
             {
                 name: "Club Sandwich",
