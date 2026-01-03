@@ -187,20 +187,17 @@ export const menuData = [
             {
                 name: "Fruit Platter",
                 price: "480.00",
-                image: "https://images.unsplash.com/photo-1519996529931-28324d5a630e?q=80&w=600&auto=format&fit=crop",
-                description: "Assorted seasonal fresh fruits sliced and elegantly presented."
+                image: "/images/fruit_platter.png"
             },
             {
                 name: "Chocolate Brownies",
                 price: "220.00",
-                image: "https://images.unsplash.com/photo-1464347744102-11db6282f854?q=80&w=600&auto=format&fit=crop",
-                description: "Rich and fudgy chocolate brownies, perfect for a sweet treat."
+                image: "/images/chocolate_brownies.png"
             },
             {
                 name: "Black & White Forest pcs",
                 price: "240.00",
-                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop",
-                description: "Classic layers of chocolate or vanilla sponge with cream and cherries."
+                image: "/images/black_white_forest_cake.png"
             }
         ]
     },
