@@ -7,14 +7,12 @@ import FoodCard from './components/FoodCard';
 import FoodModal from './components/FoodModal';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import Loader from './components/Loader';
+import CallButton from './components/CallButton';
 import { menuData } from './data/menuData';
 
 function App() {
   const [activeCategory, setActiveCategory] = useState(menuData[0].id);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isExiting, setIsExiting] = useState(false);
 
   // Force scroll to top on refresh and handle image preloading
   useEffect(() => {
@@ -22,46 +20,6 @@ function App() {
       history.scrollRestoration = 'manual';
     }
     window.scrollTo(0, 0);
-
-    // Preload all images
-    const imageUrls = menuData.flatMap(category => category.items.map(item => item.image));
-    let loadedCount = 0;
-
-    if (imageUrls.length === 0) {
-      setTimeout(() => {
-        setIsExiting(true);
-        setTimeout(() => setIsLoading(false), 400);
-      }, 500);
-      return;
-    }
-
-    // Fail-safe timeout: Force stop loading after 5 seconds if images are stuck
-    const failSafeTimeout = setTimeout(() => {
-      console.warn("Preloading timed out. Proceeding to menu.");
-      setIsExiting(true);
-      setTimeout(() => setIsLoading(false), 400);
-    }, 5000);
-
-    const handleImageLoad = () => {
-      loadedCount++;
-      if (loadedCount === imageUrls.length) {
-        // Minimum display time for the loader to ensure smooth feel
-        clearTimeout(failSafeTimeout);
-        setTimeout(() => {
-          setIsExiting(true);
-          setTimeout(() => setIsLoading(false), 400);
-        }, 500);
-      }
-    };
-
-    imageUrls.forEach(url => {
-      const img = new Image();
-      img.src = url;
-      img.onload = handleImageLoad;
-      img.onerror = handleImageLoad; // Continue even if some images fail
-    });
-
-    return () => clearTimeout(failSafeTimeout);
   }, []);
 
   const handleCategoryClick = React.useCallback((id) => {
@@ -110,7 +68,6 @@ function App() {
 
   return (
     <>
-      {isLoading && <Loader isExiting={isExiting} />}
       <Layout>
         <CategoryNav
           categories={menuData}
@@ -160,6 +117,7 @@ function App() {
         />
 
         <ScrollToTop />
+        <CallButton />
       </Layout>
     </>
   );
