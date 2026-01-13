@@ -1,27 +1,31 @@
 import React from 'react';
 
-const ImportantInfo = () => {
+import { uiTranslations } from '../data/uiTranslations';
+
+const ImportantInfo = ({ currentLang = 'en' }) => {
+    const t = uiTranslations[currentLang] || uiTranslations.en;
+
     return (
         <div className="px-6 py-4 bg-amber-50 border-l-4 border-hotel-gold mx-4 rounded-r-lg shadow-sm">
             <div className="space-y-3">
                 <div>
-                    <h3 className="text-base font-bold text-hotel-dark mb-1">Room Service Available 24/7</h3>
+                    <h3 className="text-base font-bold text-hotel-dark mb-1">{t.roomService}</h3>
                     <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                        If you or any of your guests have an allergy or dietary restriction, please inform your waiter and our chefs will be happy to accommodate your needs.
+                        {t.allergy}
                     </p>
                 </div>
 
                 <div className="pt-2 border-t border-amber-200">
-                    <h4 className="text-sm font-bold text-hotel-dark">Swiss Inn Nexus Hotel</h4>
-                    <p className="text-xs text-slate-600">Addis Ababa, Ethiopia</p>
+                    <h4 className="text-sm font-bold text-hotel-dark">{t.hotelName}</h4>
+                    <p className="text-xs text-slate-600">{t.location}</p>
                 </div>
 
                 <div className="pt-2 border-t border-amber-200 space-y-1">
                     <p className="text-[11px] text-slate-600 font-bold uppercase tracking-wider">
-                        All prices include 10% service charge & 15% VAT
+                        {t.taxInfo}
                     </p>
                     <p className="text-[11px] text-slate-600 font-bold uppercase tracking-wider">
-                        All prices are in Ethiopian Birr
+                        {t.currencyInfo}
                     </p>
                 </div>
             </div>

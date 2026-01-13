@@ -11,7 +11,10 @@ import CallButton from './components/CallButton';
 import { menuData } from './data/menuData';
 
 function App() {
-  const [activeCategory, setActiveCategory] = useState(menuData[0].id);
+  const [language, setLanguage] = useState('en');
+  // Get the current menu data based on the selected language
+  const currentMenuData = menuData[language];
+  const [activeCategory, setActiveCategory] = useState(currentMenuData[0].id);
   const [selectedItem, setSelectedItem] = useState(null);
 
   // Force scroll to top on refresh and handle image preloading
@@ -26,7 +29,7 @@ function App() {
     setActiveCategory(id);
     const element = document.getElementById(id);
     if (element) {
-      const offset = 180; // Offset for taller card-style sticky nav
+      const offset = 210; // Increased offset to account for taller header
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -58,7 +61,7 @@ function App() {
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
     // Watch all menu sections
-    menuData.forEach((category) => {
+    currentMenuData.forEach((category) => {
       const element = document.getElementById(category.id);
       if (element) observer.observe(element);
     });
@@ -70,19 +73,21 @@ function App() {
     <>
       <Layout>
         <CategoryNav
-          categories={menuData}
+          categories={currentMenuData}
           activeCategory={activeCategory}
           onCategoryClick={handleCategoryClick}
+          currentLang={language}
+          onLanguageChange={setLanguage}
         />
 
-        <div className="pt-32">
-          <Header />
+        <div className="pt-44">
+          <Header currentLang={language} />
         </div>
 
-        <ImportantInfo />
+        <ImportantInfo currentLang={language} />
 
         <main className="px-6 py-4 flex-grow">
-          {menuData.map((category) => (
+          {currentMenuData.map((category) => (
             <section key={category.id} id={category.id} className="mb-14 text-center">
               <h2 className="text-2xl font-black text-hotel-green mb-4 tracking-tighter uppercase border-b-2 border-green-50 inline-block pb-1">
                 {category.title}
@@ -109,7 +114,7 @@ function App() {
           ))}
         </main>
 
-        <Footer />
+        <Footer currentLang={language} />
 
         <FoodModal
           item={selectedItem}

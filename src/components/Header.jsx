@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Header = () => {
-    const text = "Hello, Guest";
+import { uiTranslations } from '../data/uiTranslations';
+
+const Header = ({ currentLang = 'en' }) => {
+    const t = uiTranslations[currentLang] || uiTranslations.en;
+    const text = t.welcome;
 
     const container = {
         hidden: { opacity: 0 },
@@ -28,12 +31,13 @@ const Header = () => {
     };
 
     return (
-        <header className="px-6 pt-12 pb-6">
+        <header className="px-6 pt-16 pb-6">
             <motion.h1
-                className="text-3xl font-bold text-hotel-dark tracking-tight flex"
+                className="text-3xl font-bold text-hotel-dark tracking-tight flex flex-wrap"
                 variants={container}
                 initial="hidden"
                 animate="visible"
+                key={currentLang} // Re-animate on language change
             >
                 {text.split("").map((letter, index) => (
                     <motion.span variants={child} key={index}>
@@ -45,9 +49,10 @@ const Header = () => {
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.5 }}
+                key={`p-${currentLang}`} // Re-animate on language change
                 className="text-slate-500 text-sm mt-1"
             >
-                What is your selection today?
+                {t.hotelSubtitle}
             </motion.p>
         </header>
     );

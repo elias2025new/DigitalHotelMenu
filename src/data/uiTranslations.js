@@ -1,0 +1,52 @@
+export const uiTranslations = {
+    en: {
+        welcome: "Welcome",
+        hotelSubtitle: "Swiss Inn Nexus Hotel",
+        roomService: "Room Service Available 24/7",
+        allergy: "If you or any of your guests have an allergy or dietary restriction, please inform your waiter and our chefs will be happy to accommodate your needs.",
+        hotelName: "Swiss Inn Nexus Hotel",
+        location: "Addis Ababa, Ethiopia",
+        taxInfo: "All prices include 10% service charge & 15% VAT",
+        currencyInfo: "All prices are in Ethiopian Birr"
+    },
+    fr: {
+        welcome: "Bienvenue",
+        hotelSubtitle: "Swiss Inn Nexus Hotel",
+        roomService: "Service d'étage disponible 24h/24 et 7j/7",
+        allergy: "Si vous ou l'un de vos invités avez une allergie ou une restriction alimentaire, veuillez en informer votre serveur et nos chefs se feront un plaisir de répondre à vos besoins.",
+        hotelName: "Swiss Inn Nexus Hotel",
+        location: "Addis-Abeba, Éthiopie",
+        taxInfo: "Tous les prix incluent 10 % de frais de service et 15 % de TVA",
+        currencyInfo: "Tous les prix sont en Birr éthiopien"
+    },
+    ar: {
+        welcome: "أهلاً بكم",
+        hotelSubtitle: "فندق سويس إن نيكسس",
+        roomService: "خدمة الغرف متاحة على مدار الساعة طوال أيام الأسبوع",
+        allergy: "إذا كنت أنت أو أي من ضيوفك تعانون من حساسية أو قيود غذائية، فيرجى إبلاغ النادل وسيسعد طهاتنا بتلبية احتياجاتك.",
+        hotelName: "فندق سويس إن نيكسس",
+        location: "أديس أبابا، إثيوبيا",
+        taxInfo: "جميع الأسعار تشمل 10٪ رسوم خدمة و 15٪ ضريبة قيمة مضافة",
+        currencyInfo: "جميع الأسعار بالبير الإثيوبي"
+    },
+    zh: {
+        welcome: "欢迎",
+        hotelSubtitle: "瑞士旅馆内克瑟斯酒店",
+        roomService: "24/7 全天候提供客房服务",
+        allergy: "如果您或您的任何客人有对过敏或饮食限制，请告知您的服务员，我们的厨师将很乐意满足您的需求。",
+        hotelName: "瑞士旅馆内克瑟斯酒店",
+        location: "埃塞俄比亚，亚的斯亚北巴",
+        taxInfo: "所有价格均包含 10% 的服务费和 15% 的增值税",
+        currencyInfo: "所有价格均以埃塞俄比亚比尔为单位"
+    },
+    am: {
+        welcome: "እንኳን ደህና መጡ",
+        hotelSubtitle: "ስዊስ ኢን ኔክሰስ ሆቴል",
+        roomService: "የክፍል አገልግሎት በቀን 24 ሰዓት በሳምንት 7 ቀን ይገኛል",
+        allergy: "እርስዎ ወይም ማንኛውም እንግዳዎ የአለርጂ ወይም የአመጋገብ ገደብ ካለብዎት፣ እባክዎን ለአስተናጋጁ ያሳውቁ እና ሼፎቻችን ፍላጎትዎን ለማሟላት ደስተኞች ይሆናሉ።",
+        hotelName: "ስዊስ ኢን ኔክሰስ ሆቴል",
+        location: "አዲስ አበባ፣ ኢትዮጵያ",
+        taxInfo: "ሁሉም ዋጋዎች 10% የአገልግሎት ክፍያ እና 15% የተጨማሪ እሴት ታክስ (VAT) ያካትታሉ",
+        currencyInfo: "ሁሉም ዋጋዎች በኢትዮጵያ ብር ናቸው"
+    }
+};

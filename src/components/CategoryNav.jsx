@@ -1,13 +1,25 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Globe, ChevronDown } from 'lucide-react';
 
-const CategoryNav = ({ categories, activeCategory, onCategoryClick }) => {
+const CategoryNav = ({ categories, activeCategory, onCategoryClick, currentLang, onLanguageChange }) => {
     const scrollRef = useRef(null);
     const buttonRefs = useRef({});
     const [showLeftIndicator, setShowLeftIndicator] = useState(false);
     const [showRightIndicator, setShowRightIndicator] = useState(true);
     const [showScrollHint, setShowScrollHint] = useState(false);
+    const [isLangOpen, setIsLangOpen] = useState(false);
+
+    const languages = [
+        { code: 'en', name: 'English', flag: 'https://flagcdn.com/w40/gb.png' },
+        { code: 'fr', name: 'French', flag: 'https://flagcdn.com/w40/fr.png' },
+        { code: 'ar', name: 'Arabic', flag: 'https://flagcdn.com/w40/sa.png' },
+        { code: 'zh', name: 'Chinese', flag: 'https://flagcdn.com/w40/cn.png' },
+        { code: 'am', name: 'Amharic', flag: 'https://flagcdn.com/w40/et.png' }
+    ];
+
+    // Find the current language object for display
+    const currentLanguageObj = languages.find(l => l.code === currentLang) || languages[0];
 
     useEffect(() => {
         // Show hint after header animation finishes (wait 2.5s)
@@ -83,7 +95,69 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick }) => {
 
     return (
         <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 max-w-[430px] mx-auto shadow-sm">
-            <div className="relative pt-6 pb-4">
+            {/* Header Section */}
+            <div className="px-6 pt-4 pb-2 flex justify-between items-start border-b border-gray-200 bg-gray-50/80 backdrop-blur-md relative z-20">
+                <div className="flex flex-col">
+                    <h1 className="text-sm font-black text-hotel-dark tracking-tighter leading-tight uppercase">
+                        SWISS INN NEXUS HOTEL
+                    </h1>
+                    <span className="text-[10px] text-hotel-green font-bold tracking-widest uppercase mt-0.5">
+                        Room menu
+                    </span>
+                </div>
+
+                <div className="relative">
+                    <button
+                        onClick={() => setIsLangOpen(!isLangOpen)}
+                        className="flex items-center gap-1.5 bg-gray-50 hover:bg-gray-100 px-2 py-1.5 rounded-lg transition-colors border border-gray-200"
+                    >
+                        <img
+                            src={currentLanguageObj.flag}
+                            alt={currentLanguageObj.name}
+                            className="w-4 h-3 object-cover rounded-[1px] shadow-sm"
+                        />
+                        <span className="text-xs font-semibold text-gray-700">{currentLanguageObj.code.toUpperCase()}</span>
+                        <ChevronDown size={12} className={`text-gray-400 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} />
+                    </button>
+
+                    <AnimatePresence>
+                        {isLangOpen && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 5, scale: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: 5, scale: 0.95 }}
+                                transition={{ duration: 0.1 }}
+                                className="absolute right-0 top-full mt-2 w-40 bg-white rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden py-1.5 z-[100]"
+                            >
+                                {languages.map((lang) => (
+                                    <button
+                                        key={lang.code}
+                                        onClick={() => {
+                                            onLanguageChange(lang.code);
+                                            setIsLangOpen(false);
+                                        }}
+                                        className={`w-full text-left px-3 py-2 text-xs font-medium hover:bg-gray-50 transition-colors flex items-center gap-3
+                                            ${currentLang === lang.code ? 'text-hotel-green bg-green-50/50' : 'text-gray-600'}
+                                        `}
+                                    >
+                                        <img
+                                            src={lang.flag}
+                                            alt={lang.name}
+                                            className="w-5 h-3.5 object-cover rounded-[1px] shadow-sm"
+                                        />
+                                        <span className="flex-grow">{lang.name}</span>
+                                        {currentLang === lang.code && (
+                                            <div className="w-1.5 h-1.5 rounded-full bg-hotel-green" />
+                                        )}
+                                    </button>
+                                ))}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
+            </div>
+
+            <div className="relative pt-3 pb-4 z-10">
                 {/* Left scroll indicator */}
                 <AnimatePresence>
                     {showLeftIndicator && (
@@ -91,7 +165,7 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick }) => {
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -10 }}
-                            className="absolute left-0 top-6 bottom-4 w-12 bg-gradient-to-r from-white to-transparent z-10 flex items-center justify-start pl-1 pointer-events-none"
+                            className="absolute left-0 top-3 bottom-4 w-12 bg-gradient-to-r from-white to-transparent z-10 flex items-center justify-start pl-1 pointer-events-none"
                         >
                             <ChevronLeft size={20} className="text-hotel-green" />
                         </motion.div>
@@ -105,7 +179,7 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick }) => {
                             initial={{ opacity: 0, x: 10 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: 10 }}
-                            className="absolute right-0 top-6 bottom-4 w-12 bg-gradient-to-l from-white to-transparent z-10 flex items-center justify-end pr-1 pointer-events-none"
+                            className="absolute right-0 top-3 bottom-4 w-12 bg-gradient-to-l from-white to-transparent z-10 flex items-center justify-end pr-1 pointer-events-none"
                         >
                             <ChevronRight size={20} className="text-hotel-green" />
                         </motion.div>
@@ -125,7 +199,7 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick }) => {
                                 color: '#ffffff',
                                 zIndex: 100
                             }}
-                            className="absolute top-2 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full shadow-lg whitespace-nowrap uppercase font-bold text-[10px] tracking-widest text-center"
+                            className="absolute top-0 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full shadow-lg whitespace-nowrap uppercase font-bold text-[10px] tracking-widest text-center"
                         >
                             ← Swipe for more →
                         </motion.div>
