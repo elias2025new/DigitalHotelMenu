@@ -111,10 +111,10 @@ const Footer = ({ currentLang = 'en' }) => {
 
                 {/* Info Section */}
                 <div className="pt-6 border-t border-white/10 flex flex-col items-center space-y-2">
-                    <p className="text-[9px] text-white/40 uppercase font-bold tracking-widest text-center">
+                    <p className="text-[9px] text-white uppercase font-bold tracking-widest text-center">
                         {t.taxInfo}
                     </p>
-                    <p className="text-[9px] text-white/40 uppercase font-bold tracking-widest text-center">
+                    <p className="text-[9px] text-white uppercase font-bold tracking-widest text-center">
                         {t.currencyInfo}
                     </p>
                     <div className="mt-4 opacity-40">
