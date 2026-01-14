@@ -96,12 +96,12 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick, currentLang,
     return (
         <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 max-w-[430px] mx-auto shadow-sm">
             {/* Header Section */}
-            <div className="px-6 pt-4 pb-2 flex justify-between items-start border-b border-gray-200 bg-gray-50/80 backdrop-blur-md relative z-20">
+            <div className="px-6 pt-4 pb-2 flex justify-between items-start border-b border-maroon-700/30 bg-hotel-maroon relative z-20">
                 <div className="flex flex-col">
-                    <h1 className="text-sm font-black text-hotel-dark tracking-tighter leading-tight uppercase">
+                    <h1 className="text-sm font-black text-white tracking-tighter leading-tight uppercase">
                         SWISS INN NEXUS HOTEL
                     </h1>
-                    <span className="text-[10px] text-hotel-green font-bold tracking-widest uppercase mt-0.5">
+                    <span className="text-[10px] text-white/80 font-bold tracking-widest uppercase mt-0.5">
                         Room menu
                     </span>
                 </div>
@@ -109,15 +109,15 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick, currentLang,
                 <div className="relative">
                     <button
                         onClick={() => setIsLangOpen(!isLangOpen)}
-                        className="flex items-center gap-1.5 bg-gray-50 hover:bg-gray-100 px-2 py-1.5 rounded-lg transition-colors border border-gray-200"
+                        className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-2 py-1.5 rounded-lg transition-colors border border-white/20"
                     >
                         <img
                             src={currentLanguageObj.flag}
                             alt={currentLanguageObj.name}
                             className="w-4 h-3 object-cover rounded-[1px] shadow-sm"
                         />
-                        <span className="text-xs font-semibold text-gray-700">{currentLanguageObj.code.toUpperCase()}</span>
-                        <ChevronDown size={12} className={`text-gray-400 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} />
+                        <span className="text-xs font-semibold text-white">{currentLanguageObj.code.toUpperCase()}</span>
+                        <ChevronDown size={12} className={`text-white/70 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} />
                     </button>
 
                     <AnimatePresence>
