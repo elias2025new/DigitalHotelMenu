@@ -40,18 +40,17 @@ const Footer = ({ currentLang = 'en' }) => {
 
     return (
         <footer className="bg-hotel-maroon mt-auto w-full shadow-[0_-10px_40px_rgba(128,0,0,0.1)]">
-            <div className="max-w-[430px] mx-auto px-6 py-12 space-y-8">
+            <div className="max-w-[430px] mx-auto px-6 py-9 space-y-6">
                 {/* Contact Section */}
-                <div className="space-y-6">
+                <div className="space-y-4">
                     <h3 className="text-xs font-black text-white/50 uppercase tracking-[0.2em] text-center">
                         {t.contactUs}
                     </h3>
 
-
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                         {/* Phone */}
                         <a href="tel:+251116670067" className="flex items-center gap-4 group">
-                            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 group-hover:bg-white/20 group-hover:text-white transition-all duration-300 border border-white/10">
+                            <div className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/70 group-hover:bg-white/20 group-hover:text-white transition-all duration-300 border border-white/10">
                                 <Phone size={18} />
                             </div>
                             <div className="flex flex-col">
@@ -62,7 +61,7 @@ const Footer = ({ currentLang = 'en' }) => {
 
                         {/* Location */}
                         <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 border border-white/10">
+                            <div className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/70 border border-white/10">
                                 <MapPin size={18} />
                             </div>
                             <div className="flex flex-col">
@@ -78,7 +77,7 @@ const Footer = ({ currentLang = 'en' }) => {
                             rel="noopener noreferrer"
                             className="flex items-center gap-4 group"
                         >
-                            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 group-hover:bg-white/20 group-hover:text-white transition-all duration-300 border border-white/10">
+                            <div className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/70 group-hover:bg-white/20 group-hover:text-white transition-all duration-300 border border-white/10">
                                 <Globe size={18} />
                             </div>
                             <div className="flex flex-col">
@@ -94,14 +93,14 @@ const Footer = ({ currentLang = 'en' }) => {
                     <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em] block text-center">
                         {t.followUs}
                     </span>
-                    <div className="flex justify-center gap-6">
+                    <div className="flex justify-center gap-4">
                         {socialLinks.map((social) => (
                             <a
                                 key={social.name}
                                 href={social.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`w-12 h-12 rounded-2xl ${social.bg} ${social.color} flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 border border-white/10`}
+                                className={`w-10 h-10 rounded-2xl ${social.bg} ${social.color} flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 border border-white/10`}
                                 title={social.name}
                             >
                                 {social.icon}
@@ -111,7 +110,7 @@ const Footer = ({ currentLang = 'en' }) => {
                 </div>
 
                 {/* Info Section */}
-                <div className="pt-8 border-t border-white/10 flex flex-col items-center space-y-2">
+                <div className="pt-6 border-t border-white/10 flex flex-col items-center space-y-2">
                     <p className="text-[9px] text-white/40 uppercase font-bold tracking-widest text-center">
                         {t.taxInfo}
                     </p>

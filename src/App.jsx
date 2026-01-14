@@ -86,9 +86,9 @@ function App() {
 
         <ImportantInfo currentLang={language} />
 
-        <main className="px-6 py-4 flex-grow">
-          {currentMenuData.map((category) => (
-            <section key={category.id} id={category.id} className="mb-14 text-center">
+        <main className="px-6 pt-4 pb-0 flex-grow">
+          {currentMenuData.map((category, index) => (
+            <section key={category.id} id={category.id} className="mb-8 text-center">
               <h2 className="text-2xl font-black text-hotel-green mb-4 tracking-tighter uppercase border-b-2 border-green-50 inline-block pb-1">
                 {category.title}
               </h2>
@@ -99,17 +99,19 @@ function App() {
               )}
 
               <div className="space-y-4 text-left">
-                {category.items.map((item, index) => (
+                {category.items.map((item, itemIndex) => (
                   <FoodCard
-                    key={`${category.id}-${index}`}
+                    key={`${category.id}-${itemIndex}`}
                     item={item}
                     onClick={setSelectedItem}
                   />
                 ))}
               </div>
 
-              {/* Divider Line between sections */}
-              <div className="mt-12 mb-6 border-b-2 border-slate-100 opacity-60 rounded-full mx-4"></div>
+              {/* Divider Line between sections, hide for last item */}
+              {index < currentMenuData.length - 1 && (
+                <div className="mt-12 mb-6 border-b-2 border-slate-100 opacity-60 rounded-full mx-4"></div>
+              )}
             </section>
           ))}
         </main>
