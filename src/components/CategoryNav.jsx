@@ -44,22 +44,12 @@ const CategoryNav = ({ categories, activeCategory, onCategoryClick, currentLang,
             const container = scrollRef.current;
             const activeButton = buttonRefs.current[activeCategory];
 
-            const containerRect = container.getBoundingClientRect();
-            const buttonRect = activeButton.getBoundingClientRect();
-
-            // Calculate if button is out of view
-            const isOutOfView =
-                buttonRect.left < containerRect.left ||
-                buttonRect.right > containerRect.right;
-
-            if (isOutOfView) {
-                // Scroll the active button into the center of the container
-                const scrollLeft = activeButton.offsetLeft - (container.offsetWidth / 2) + (activeButton.offsetWidth / 2);
-                container.scrollTo({
-                    left: scrollLeft,
-                    behavior: 'smooth'
-                });
-            }
+            // Scroll the active button into the center of the container
+            const scrollLeft = activeButton.offsetLeft - (container.offsetWidth / 2) + (activeButton.offsetWidth / 2);
+            container.scrollTo({
+                left: scrollLeft,
+                behavior: 'smooth'
+            });
         }
     }, [activeCategory]);
 

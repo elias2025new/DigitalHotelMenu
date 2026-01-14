@@ -7,7 +7,12 @@ export const uiTranslations = {
         hotelName: "Swiss Inn Nexus Hotel",
         location: "Addis Ababa, Ethiopia",
         taxInfo: "All prices include 10% service charge & 15% VAT",
-        currencyInfo: "All prices are in Ethiopian Birr"
+        currencyInfo: "All prices are in Ethiopian Birr",
+        contactUs: "Contact Us",
+        phone: "Phone",
+        locationLabel: "Location",
+        website: "Website",
+        followUs: "Follow Us"
     },
     fr: {
         welcome: "Bienvenue",
@@ -17,7 +22,12 @@ export const uiTranslations = {
         hotelName: "Swiss Inn Nexus Hotel",
         location: "Addis-Abeba, Éthiopie",
         taxInfo: "Tous les prix incluent 10 % de frais de service et 15 % de TVA",
-        currencyInfo: "Tous les prix sont en Birr éthiopien"
+        currencyInfo: "Tous les prix sont en Birr éthiopien",
+        contactUs: "Contactez-nous",
+        phone: "Téléphone",
+        locationLabel: "Emplacement",
+        website: "Site Web",
+        followUs: "Suivez-nous"
     },
     ar: {
         welcome: "أهلاً بكم",
@@ -27,7 +37,12 @@ export const uiTranslations = {
         hotelName: "فندق سويس إن نيكسس",
         location: "أديس أبابا، إثيوبيا",
         taxInfo: "جميع الأسعار تشمل 10٪ رسوم خدمة و 15٪ ضريبة قيمة مضافة",
-        currencyInfo: "جميع الأسعار بالبير الإثيوبي"
+        currencyInfo: "جميع الأسعار بالبير الإثيوبي",
+        contactUs: "اتصل بنا",
+        phone: "هاتف",
+        locationLabel: "موقع",
+        website: "موقع إلكتروني",
+        followUs: "تابعنا"
     },
     zh: {
         welcome: "欢迎",
@@ -37,7 +52,12 @@ export const uiTranslations = {
         hotelName: "瑞士旅馆内克瑟斯酒店",
         location: "埃塞俄比亚，亚的斯亚北巴",
         taxInfo: "所有价格均包含 10% 的服务费和 15% 的增值税",
-        currencyInfo: "所有价格均以埃塞俄比亚比尔为单位"
+        currencyInfo: "所有价格均以埃塞俄比亚比尔为单位",
+        contactUs: "联系我们",
+        phone: "电话",
+        locationLabel: "位置",
+        website: "网站",
+        followUs: "关注我们"
     },
     am: {
         welcome: "እንኳን ደህና መጡ",
@@ -47,6 +67,11 @@ export const uiTranslations = {
         hotelName: "ስዊስ ኢን ኔክሰስ ሆቴል",
         location: "አዲስ አበባ፣ ኢትዮጵያ",
         taxInfo: "ሁሉም ዋጋዎች 10% የአገልግሎት ክፍያ እና 15% የተጨማሪ እሴት ታክስ (VAT) ያካትታሉ",
-        currencyInfo: "ሁሉም ዋጋዎች በኢትዮጵያ ብር ናቸው"
+        currencyInfo: "ሁሉም ዋጋዎች በኢትዮጵያ ብር ናቸው",
+        contactUs: "ያግኙን",
+        phone: "ስልክ",
+        locationLabel: "አድራሻ",
+        website: "ድረ-ገጽ",
+        followUs: "ይከተሉን"
     }
 };
