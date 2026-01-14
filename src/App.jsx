@@ -36,6 +36,8 @@ function App() {
     }
   }, []);
 
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+
   // Update active category on scroll (Throttled & Efficient)
   useEffect(() => {
     const observerOptions = {
@@ -60,7 +62,24 @@ function App() {
       if (element) observer.observe(element);
     });
 
-    return () => observer.disconnect();
+    // Special observer for footer to hide Call Button
+    const footerObserver = new IntersectionObserver(
+      ([entry]) => {
+        setIsFooterVisible(entry.isIntersecting);
+      },
+      {
+        rootMargin: '0px 0px -120px 0px', // Hide when footer is near the call button
+        threshold: 0
+      }
+    );
+
+    const footerElement = document.getElementById('footer-contact');
+    if (footerElement) footerObserver.observe(footerElement);
+
+    return () => {
+      observer.disconnect();
+      footerObserver.disconnect();
+    };
   }, []);
 
   return (
@@ -118,7 +137,7 @@ function App() {
         />
 
         <ScrollToTop />
-        <CallButton />
+        <CallButton isVisible={!isFooterVisible} />
       </Layout>
     </>
   );

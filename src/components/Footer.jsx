@@ -39,7 +39,7 @@ const Footer = ({ currentLang = 'en' }) => {
     ];
 
     return (
-        <footer className="bg-hotel-maroon mt-auto w-full shadow-[0_-10px_40px_rgba(128,0,0,0.1)]">
+        <footer id="footer-contact" className="bg-hotel-maroon mt-auto w-full shadow-[0_-10px_40px_rgba(128,0,0,0.1)]">
             <div className="max-w-[430px] mx-auto px-6 py-5 space-y-4">
                 {/* Contact Section */}
                 <div className="space-y-4">
