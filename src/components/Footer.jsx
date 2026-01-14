@@ -40,7 +40,7 @@ const Footer = ({ currentLang = 'en' }) => {
 
     return (
         <footer className="bg-hotel-maroon mt-auto w-full shadow-[0_-10px_40px_rgba(128,0,0,0.1)]">
-            <div className="max-w-[430px] mx-auto px-6 py-9 space-y-6">
+            <div className="max-w-[430px] mx-auto px-6 py-5 space-y-4">
                 {/* Contact Section */}
                 <div className="space-y-4">
                     <h3 className="text-xs font-black text-white/50 uppercase tracking-[0.2em] text-center">
