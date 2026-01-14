@@ -11,7 +11,7 @@ const Footer = ({ currentLang = 'en' }) => {
         {
             name: 'Facebook',
             icon: <Facebook size={20} />,
-            url: '#', // Placeholder until user provides link
+            url: 'https://www.facebook.com/swissinnnexusaddisababa',
             color: 'text-white',
             bg: 'bg-[#1877F2]'
         },

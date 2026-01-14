@@ -29,15 +29,9 @@ function App() {
     setActiveCategory(id);
     const element = document.getElementById(id);
     if (element) {
-      const offset = 210; // Increased offset to account for taller header
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
       });
     }
   }, []);
@@ -88,7 +82,7 @@ function App() {
 
         <main className="px-6 pt-4 pb-0 flex-grow">
           {currentMenuData.map((category, index) => (
-            <section key={category.id} id={category.id} className="mb-8 text-center">
+            <section key={category.id} id={category.id} className="mb-8 text-center scroll-mt-48">
               <h2 className="text-2xl font-black text-hotel-green mb-4 tracking-tighter uppercase border-b-2 border-green-50 inline-block pb-1">
                 {category.title}
               </h2>
